@@ -2,7 +2,7 @@ hostname {{ hostname }}
 serial {{ serial }}
 {% for custom in _custom_field_data %}
 {% if custom == 'num' %}
-num: custom['num']
+num: {{ custom['num'] }}
 {% endif %}
 {% endfor %}
 
