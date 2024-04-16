@@ -1,9 +1,14 @@
 hostname {{ hostname }}
 serial {{ serial }}
-{% for custom in _custom_field_data %}
-{% if custom == 'num' %}
+{% for custom in _custom_field_data -%}
+{% if custom == 'num' -%}
 num: {{ _custom_field_data["num"] }}
-{% endif %}
+{% endif -%}
 {% endfor %}
-
 end
+
+
+
+
+{% include './eos/hostname.j2' %}
+{% include './eos/interfaces.j2' %}
