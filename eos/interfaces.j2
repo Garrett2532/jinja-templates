@@ -4,7 +4,7 @@
 {% endfor %}
 {% endfor %}
 {% for interface in interfaces %}
-
+!
 interface {{ interface["name"] }}
 {% if 'Ethernet' in interface["name"] %}
 {% include './eos/ethernetInterface.j2' %}
