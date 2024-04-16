@@ -1,17 +1,17 @@
-{% for interface in interfaces -%}
-{% for taggedVlan in interface['tagged_vlans'] -%}
+{% for interface in interfaces %}
+{% for taggedVlan in interface['tagged_vlans'] %}
 {% include './eos/vlan.j2' %}
-{% endfor -%}
-{% endfor -%}
-{% for interface in interfaces -%}
+{% endfor %}
+{% endfor %}
+{% for interface in interfaces %}
 interface {{ interface["name"] }}
-{% if 'Ethernet' in interface["name"] -%}
-{% include './eos/ethernetInterface.j2' -%}
-{% elif 'Switch' in interface["name"] -%}
-{% include './eos/switchInterface.j2' -%}
-{% elif 'Loop' in interface["name"] -%}
-{% include './eos/loopbackInterface.j2' -%}
-{% elif 'Vxlan' in interface["name"] -%}
-{% include './eos/VxlanInterface.j2' -%}
+{% if 'Ethernet' in interface["name"] %}
+{% include './eos/ethernetInterface.j2' %}
+{% elif 'Switch' in interface["name"] %}
+{% include './eos/switchInterface.j2' %}
+{% elif 'Loop' in interface["name"] %}
+{% include './eos/loopbackInterface.j2' %}
+{% elif 'Vxlan' in interface["name"] %}
+{% include './eos/VxlanInterface.j2' %}
 {% endif %}
-{% endfor -%}
+{% endfor %}
