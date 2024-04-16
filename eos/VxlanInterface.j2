@@ -1,19 +1,19 @@
-  {% for interface in interfaces %}
-  {% if 'Loop' in interface["name"] %}
+{% for interface in interfaces %}
+{% if 'Loop' in interface["name"] %}
   vxlan source-interface {{interface["name"]}}
-  {% endif %}
-  {% endfor %}
+{% endif %}
+{% endfor %}
   vxlan udp-port 4789
-  {% if interface['tagged_vlans'] %} 
+{% if interface['tagged_vlans'] %} 
   vxlan vlan {{interface['tagged_vlans'][0]['vid']}} vni 10100
-  {% if interface["ip_addresses"] | length > 0 %}
-  {% for addr in interface["ip_addresses"] %}
-  {% if addr["address"] is defined %}
+{% if interface["ip_addresses"] | length > 0 %}
+{% for addr in interface["ip_addresses"] %}
+{% if addr["address"] is defined %}
   vxlan vlan {{interface['tagged_vlans'][0]['vid']}} flood vtep {{ addr["address"] }}
-  {% endif %}
-  {% endfor %}
-  {% endif %}
-  {% elif interface['untagged_vlan'] %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% elif interface['untagged_vlan'] %}
   vxlan vlan {{interface['untagged_vlan']['vid']}} vni 10100
-  {% endif %}
+{% endif %}
 {% include './eos/ospfRouter.j2'%}
