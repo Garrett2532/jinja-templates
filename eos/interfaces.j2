@@ -6,9 +6,11 @@
 {% for interface in interfaces %}
 !
 {% if 'Ethernet' in interface["name"] %}
+interface Ethernet{{ loop.index }}
 {% include './eos/ethernetInterface.j2' %}
 {% elif 'Switch' in interface["name"] %}
-{% include './eos/switchInterface.j2' with index=loop.index %}
+interface Ethernet{{ loop.index }}
+{% include './eos/switchInterface.j2' %}
 {% elif 'Loop' in interface["name"] %}
 {% include './eos/loopbackInterface.j2' %}
 {% elif 'Vxlan' in interface["name"] %}
