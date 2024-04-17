@@ -5,7 +5,7 @@ router ospf 1
 {% if interface["ip_addresses"] | length > 0 %}
 {% for addr in interface["ip_addresses"] %}
 {% if addr["address"] is defined %}
-    router-id {{ addr["address"] }}
+    router-id {{ addr["address"].split('/')[0] }}
 {% endif %}
 {% endfor %}
 {% endif %}
