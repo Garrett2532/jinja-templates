@@ -15,5 +15,7 @@ interface Ethernet{{ loop.index }}
 {% include './eos/loopbackInterface.j2' %}
 {% elif 'Vxlan' in interface["name"] %}
 {% include './eos/VxlanInterface.j2' %}
+{% elif 'Manage' in interface["name"] %}
+{% include './eos/ManagementInterface.j2' %}
 {% endif %}
 {% endfor %}
