@@ -1,3 +1,4 @@
+interface {{ interface["name"] }}
 {% for interface in interfaces %}
 {% if 'Loop' in interface["name"] %}
     vxlan source-interface {{interface["name"]}}
