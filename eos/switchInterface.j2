@@ -1,5 +1,5 @@
 {% if interface['mac_address'] %}
-    mac-address {{interface['mac_address']}}
+    mac-address {{ interface['mac_address'].lower() }}
 {% endif %}
 {% if interface['tagged_vlans'] %}
     switchport access vlan {{interface['tagged_vlans'][0]['vid']}}
