@@ -4,7 +4,7 @@
 {% if interface['mac_address'] %}
     mac-address {{ interface['mac_address'].lower() }}
 {% endif %}
-{% if pine in Hostname %}
+{% if pine in hostname %}
     no switchport
 {% endif %}
 {% if interface["ip_addresses"] | length > 0 %}
