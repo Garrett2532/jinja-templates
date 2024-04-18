@@ -17,5 +17,4 @@ interface {{ interface["name"] }}
 {% elif interface['untagged_vlan'] %}
     vxlan vlan {{interface['untagged_vlan']['vid']}} vni 10100
 {% endif %}
-{% include './eos/ospfRouter.j2'%}
 !
